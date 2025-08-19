@@ -29,7 +29,6 @@ services:
   - type: web
     name: cpp-primer-frontend
     env: static
-    plan: free
     buildCommand: echo "Static site - no build needed"
     staticPublishPath: ./public
     routes:
