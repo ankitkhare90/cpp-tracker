@@ -1,0 +1,811 @@
+{
+  "users": [
+    "Khare",
+    "Roy"
+  ],
+  "book": [
+    {
+      "chapter": "Chapter 1: Getting Started",
+      "subtopics": [
+        {
+          "id": "1.1",
+          "title": "1.1 Writing a Simple C++ Program",
+          "Khare": true,
+          "Roy": false
+        },
+        {
+          "id": "1.2",
+          "title": "1.2 A First Look at Input/Output",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "1.3",
+          "title": "1.3 A Word About Comments",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "1.4",
+          "title": "1.4 Flow of Control",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "1.5",
+          "title": "1.5 Introducing Classes",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "1.6",
+          "title": "1.6 The Bookstore Program",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 2: Variables and Basic Types",
+      "subtopics": [
+        {
+          "id": "2.1",
+          "title": "2.1 Primitive Built-in Types",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "2.2",
+          "title": "2.2 Variables",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "2.3",
+          "title": "2.3 Compound Types",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "2.4",
+          "title": "2.4 const Qualifier",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "2.5",
+          "title": "2.5 Dealing with Types",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "2.6",
+          "title": "2.6 Defining Our Own Data Structures",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 3: Strings, Vectors, and Arrays",
+      "subtopics": [
+        {
+          "id": "3.1",
+          "title": "3.1 Namespace using Declarations",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "3.2",
+          "title": "3.2 Library string Type",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "3.3",
+          "title": "3.3 Library vector Type",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "3.4",
+          "title": "3.4 Introducing Iterators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "3.5",
+          "title": "3.5 Arrays",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "3.6",
+          "title": "3.6 Multidimensional Arrays",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 4: Expressions",
+      "subtopics": [
+        {
+          "id": "4.1",
+          "title": "4.1 Fundamentals",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.2",
+          "title": "4.2 Arithmetic Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.3",
+          "title": "4.3 Logical and Relational Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.4",
+          "title": "4.4 Assignment Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.5",
+          "title": "4.5 Increment and Decrement Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.6",
+          "title": "4.6 Member Access Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.7",
+          "title": "4.7 Conditional Operator",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.8",
+          "title": "4.8 Bitwise Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.9",
+          "title": "4.9 sizeof Operator",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.10",
+          "title": "4.10 Comma Operator",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.11",
+          "title": "4.11 Type Conversions",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "4.12",
+          "title": "4.12 Operator Precedence Table",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 5: Statements",
+      "subtopics": [
+        {
+          "id": "5.1",
+          "title": "5.1 Simple Statements",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "5.2",
+          "title": "5.2 Statement Scope",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "5.3",
+          "title": "5.3 Conditional Statements",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "5.4",
+          "title": "5.4 Iterative Statements",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "5.5",
+          "title": "5.5 Jump Statements",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "5.6",
+          "title": "5.6 try Blocks and Exception Handling",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 6: Functions",
+      "subtopics": [
+        {
+          "id": "6.1",
+          "title": "6.1 Function Basics",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "6.2",
+          "title": "6.2 Argument Passing",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "6.3",
+          "title": "6.3 Return Types and the return Statement",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "6.4",
+          "title": "6.4 Overloaded Functions",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "6.5",
+          "title": "6.5 Features for Specialized Uses",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "6.6",
+          "title": "6.6 Function Matching",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "6.7",
+          "title": "6.7 Pointers to Functions",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 7: Classes",
+      "subtopics": [
+        {
+          "id": "7.1",
+          "title": "7.1 Defining Abstract Data Types",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "7.2",
+          "title": "7.2 Access Control and Encapsulation",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "7.3",
+          "title": "7.3 Additional Class Features",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "7.4",
+          "title": "7.4 Class Scope",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "7.5",
+          "title": "7.5 Constructors Revisited",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "7.6",
+          "title": "7.6 static Class Members",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 8: The IO Library",
+      "subtopics": [
+        {
+          "id": "8.1",
+          "title": "8.1 The IO Classes",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "8.2",
+          "title": "8.2 File Input and Output",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "8.3",
+          "title": "8.3 string Streams",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 9: Sequential Containers",
+      "subtopics": [
+        {
+          "id": "9.1",
+          "title": "9.1 Overview of the Sequential Containers",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "9.2",
+          "title": "9.2 Container Library Overview",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "9.3",
+          "title": "9.3 Sequential Container Operations",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "9.4",
+          "title": "9.4 How a vector Grows",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "9.5",
+          "title": "9.5 Additional string Operations",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "9.6",
+          "title": "9.6 Container Adaptors",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 10: Generic Algorithms",
+      "subtopics": [
+        {
+          "id": "10.1",
+          "title": "10.1 Overview",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "10.2",
+          "title": "10.2 A First Look at the Algorithms",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "10.3",
+          "title": "10.3 Customizing Operations",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "10.4",
+          "title": "10.4 Lambda Expressions",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "10.5",
+          "title": "10.5 Library bind Function",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "10.6",
+          "title": "10.6 Insert Iterators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "10.7",
+          "title": "10.7 iostream Iterators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "10.8",
+          "title": "10.8 reverse Iterators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "10.9",
+          "title": "10.9 istreambuf Iterators",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 11: Associative Containers",
+      "subtopics": [
+        {
+          "id": "11.1",
+          "title": "11.1 Using an Associative Container",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "11.2",
+          "title": "11.2 Overview of the Associative Containers",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "11.3",
+          "title": "11.3 Operations on Associative Containers",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "11.4",
+          "title": "11.4 The unordered Containers",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 12: Dynamic Memory",
+      "subtopics": [
+        {
+          "id": "12.1",
+          "title": "12.1 Dynamic Memory and Smart Pointers",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "12.2",
+          "title": "12.2 Dynamic Arrays",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "12.3",
+          "title": "12.3 Using the Library: A Text-Query Program",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 13: Copy Control",
+      "subtopics": [
+        {
+          "id": "13.1",
+          "title": "13.1 Copy, Assign, and Destroy",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "13.2",
+          "title": "13.2 Copy Control and Resource Management",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "13.3",
+          "title": "13.3 Classes That Manage Dynamic Memory",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "13.4",
+          "title": "13.4 Overloading the Copy-Control Members",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "13.5",
+          "title": "13.5 Classes That Have Pointer Members",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 14: Overloaded Operations and Conversions",
+      "subtopics": [
+        {
+          "id": "14.1",
+          "title": "14.1 Basic Concepts",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "14.2",
+          "title": "14.2 Input and Output Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "14.3",
+          "title": "14.3 Arithmetic and Relational Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "14.4",
+          "title": "14.4 Assignment Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "14.5",
+          "title": "14.5 Subscript Operator",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "14.6",
+          "title": "14.6 Increment and Decrement Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "14.7",
+          "title": "14.7 Member Access Operators",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "14.8",
+          "title": "14.8 Function-Call Operator",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "14.9",
+          "title": "14.9 Conversion Operators",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 15: Object-Oriented Programming",
+      "subtopics": [
+        {
+          "id": "15.1",
+          "title": "15.1 OOP: An Overview",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "15.2",
+          "title": "15.2 Defining Base and Derived Classes",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "15.3",
+          "title": "15.3 Virtual Functions",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "15.4",
+          "title": "15.4 Abstract Base Classes",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "15.5",
+          "title": "15.5 Access Control and Inheritance",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "15.6",
+          "title": "15.6 Class Scope under Inheritance",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "15.7",
+          "title": "15.7 Constructors and Copy Control",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "15.8",
+          "title": "15.8 Containers and Inheritance",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 16: Templates and Generic Programming",
+      "subtopics": [
+        {
+          "id": "16.1",
+          "title": "16.1 Defining a Template",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "16.2",
+          "title": "16.2 Template Argument Deduction",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "16.3",
+          "title": "16.3 Overloading and Templates",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "16.4",
+          "title": "16.4 Variadic Templates",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "16.5",
+          "title": "16.5 Template Specializations",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 17: Specialized Library Facilities",
+      "subtopics": [
+        {
+          "id": "17.1",
+          "title": "17.1 The tuple Type",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "17.2",
+          "title": "17.2 The bitset Type",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "17.3",
+          "title": "17.3 Regular Expressions",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "17.4",
+          "title": "17.4 Random Numbers",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "17.5",
+          "title": "17.5 The IO Library Revisited",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 18: Tools for Large Programs",
+      "subtopics": [
+        {
+          "id": "18.1",
+          "title": "18.1 Exception Handling",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "18.2",
+          "title": "18.2 Namespaces",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "18.3",
+          "title": "18.3 Multiple and Virtual Inheritance",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "18.4",
+          "title": "18.4 Runtime Type Identification",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 19: Specialized Tools and Techniques",
+      "subtopics": [
+        {
+          "id": "19.1",
+          "title": "19.1 Control over Memory Allocation",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "19.2",
+          "title": "19.2 Run-Time Type Identification",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "19.3",
+          "title": "19.3 Enumerations",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "19.4",
+          "title": "19.4 Pointer to Class Member",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "19.5",
+          "title": "19.5 Nested Classes",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "19.6",
+          "title": "19.6 union: A Space-Saving Class",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "19.7",
+          "title": "19.7 Local Classes",
+          "Khare": false,
+          "Roy": false
+        },
+        {
+          "id": "19.8",
+          "title": "19.8 Inherently Nonportable Features",
+          "Khare": false,
+          "Roy": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Primer Progress Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <div class="row bg-primary text-white py-3 mb-4">
+            <div class="col-12 text-center">
+                <h1><i class="fas fa-book"></i> C++ Primer Progress Tracker</h1>
+                <p class="mb-0">Study progress for Khare and Roy</p>
+            </div>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-user"></i> Khare's Overall Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress mb-2">
+                            <div id="khare-overall-progress" class="progress-bar bg-success" role="progressbar" style="width: 0%">0%</div>
+                        </div>
+                        <small class="text-muted">Overall completion</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="fas fa-user"></i> Roy's Overall Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress mb-2">
+                            <div id="roy-overall-progress" class="progress-bar bg-info" role="progressbar" style="width: 0%">0%</div>
+                        </div>
+                        <small class="text-muted">Overall completion</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-user"></i> Khare's Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="khare-content"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="fas fa-user"></i> Roy's Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="roy-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Loading progress data...</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

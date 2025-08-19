@@ -1,0 +1,27 @@
+services:
+  # Backend API Service
+  - type: web
+    name: cpp-primer-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    disk:
+      name: progress-data
+      mountPath: /opt/render/project/src
+      sizeGB: 1
+
+  # Frontend Static Site
+  - type: web
+    name: cpp-primer-frontend
+    env: static
+    plan: free
+    buildCommand: echo "Static site - no build needed"
+    staticPublishPath: ./public
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
