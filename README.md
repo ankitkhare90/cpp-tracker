@@ -120,7 +120,7 @@ Updates a specific subtopic for a user.
 2. Connect your GitHub repository
 3. Set build command: `npm install`
 4. Set start command: `npm start`
-5. Add a persistent disk (1GB) for data storage
+5. Note: Free tier doesn't support persistent disks - data will reset on restart
 
 #### Frontend Service
 1. Create a new **Static Site** on Render

@@ -1,4 +1,11 @@
 services:
+  # PostgreSQL Database (Free tier)
+  - type: pserv
+    name: cpp-primer-db
+    env: postgresql
+    plan: free
+    ipAllowList: []
+
   # Backend API Service
   - type: web
     name: cpp-primer-backend
@@ -9,12 +16,17 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-    disk:
-      name: progress-data
-      mountPath: /opt/render/project/src
-      sizeGB: 1
+      - key: DATABASE_URL
+        fromService:
+          name: cpp-primer-db
+          type: pserv
+          property: connectionString
+    # Free tier features:
+    # - 750 hours/month
+    # - Auto-sleep after 15 minutes of inactivity
+    # - Persistent PostgreSQL database
 
-  # Frontend Static Site
+  # Frontend Static Site (Unlimited on free tier)
   - type: web
     name: cpp-primer-frontend
     env: static

@@ -51,12 +51,10 @@ This guide will help you deploy the C++ Primer Progress Tracker to Render's free
    - **Start Command**: `npm start`
    - **Plan**: `Free`
 
-3. **Add Persistent Disk**
-   - Go to "Environment" tab
-   - Add a new disk:
-     - **Name**: `progress-data`
-     - **Mount Path**: `/opt/render/project/src`
-     - **Size**: `1 GB`
+3. **Note: Free Tier Limitations**
+   - Free tier doesn't support persistent disks
+   - Progress data will reset when service restarts
+   - For persistent data, consider upgrading to paid plan
 
 4. **Deploy**
    - Click "Create Web Service"
