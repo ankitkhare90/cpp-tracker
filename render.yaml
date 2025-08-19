@@ -1,10 +1,10 @@
-services:
-  # PostgreSQL Database (Free tier)
-  - type: pserv
-    name: cpp-primer-db
-    env: postgresql
+databases:
+  - name: cpp-primer-db
     plan: free
-    ipAllowList: []
+    databaseName: cpp_primer
+    user: app_user
+
+services:
 
   # Backend API Service
   - type: web
@@ -17,9 +17,8 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        fromService:
+        fromDatabase:
           name: cpp-primer-db
-          type: pserv
           property: connectionString
     # Free tier features:
     # - 750 hours/month
