@@ -39,6 +39,25 @@ async function initializeDatabase() {
         chapter_order INTEGER NOT NULL
       )
     `);
+
+    // Cleanup: remove duplicate chapter rows without subtopics, keeping the lowest id per title
+    await client.query(`
+      DELETE FROM chapters c
+      USING chapters c2
+      WHERE c.chapter_title = c2.chapter_title
+        AND c.id > c2.id
+        AND NOT EXISTS (
+          SELECT 1 FROM subtopics s WHERE s.chapter_id = c.id
+        )
+    `);
+
+    // Try to enforce uniqueness on chapter titles
+    try {
+      await client.query(`CREATE UNIQUE INDEX IF NOT EXISTS idx_unique_chapter_title ON chapters (chapter_title)`);
+    } catch (e) {
+      // If duplicates still exist, index creation will fail; continue without blocking startup
+      console.warn('Could not create unique index on chapters.chapter_title (duplicates may exist):', e.message);
+    }
     
     // Create subtopics table
     await client.query(`
@@ -174,6 +193,7 @@ async function getProgressData() {
         WHERE u.name = 'Roy'
       ) ro ON s.id = ro.subtopic_id
       GROUP BY c.id
+      HAVING COUNT(s.id) > 0
       ORDER BY c.chapter_order
     `);
     
