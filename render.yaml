@@ -24,14 +24,3 @@ services:
     # - 750 hours/month
     # - Auto-sleep after 15 minutes of inactivity
     # - Persistent PostgreSQL database
-
-  # Frontend Static Site (Unlimited on free tier)
-  - type: web
-    name: cpp-primer-frontend
-    env: static
-    buildCommand: echo "Static site - no build needed"
-    staticPublishPath: ./public
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
