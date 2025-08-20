@@ -1,6 +1,7 @@
 // Global variables
 let progressData = null;
-const API_BASE_URL = window.location.origin;
+// Allow overriding API base via window or <meta name="backend-url" content="https://backend.example.com">
+const API_BASE_URL = (window.API_BASE_URL || (document.querySelector('meta[name="backend-url"]')?.content || '')).toString().trim();
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -48,7 +49,8 @@ function calculateOverallProgress(user) {
     let completedSubtopics = 0;
     
     progressData.book.forEach(chapter => {
-        chapter.subtopics.forEach(subtopic => {
+        const subtopics = Array.isArray(chapter.subtopics) ? chapter.subtopics : [];
+        subtopics.forEach(subtopic => {
             totalSubtopics++;
             if (subtopic[user]) {
                 completedSubtopics++;
@@ -96,7 +98,8 @@ function renderUserProgress(user, containerId) {
                 <div class="subtopics-container">
         `;
         
-        chapter.subtopics.forEach(subtopic => {
+        const subtopics = Array.isArray(chapter.subtopics) ? chapter.subtopics : [];
+        subtopics.forEach(subtopic => {
             const isCompleted = subtopic[user];
             html += `
                 <div class="subtopic-row">
@@ -125,8 +128,9 @@ function renderUserProgress(user, containerId) {
 
 // Calculate progress for a specific chapter and user
 function calculateChapterProgress(chapter, user) {
-    const totalSubtopics = chapter.subtopics.length;
-    const completedSubtopics = chapter.subtopics.filter(subtopic => subtopic[user]).length;
+    const subtopics = Array.isArray(chapter.subtopics) ? chapter.subtopics : [];
+    const totalSubtopics = subtopics.length;
+    const completedSubtopics = subtopics.filter(subtopic => subtopic[user]).length;
     return totalSubtopics > 0 ? Math.round((completedSubtopics / totalSubtopics) * 100) : 0;
 }
 
@@ -211,7 +215,8 @@ function showSuccessFeedback(user, subtopicId, status) {
 // Get subtopic title by ID
 function getSubtopicTitle(subtopicId) {
     for (const chapter of progressData.book) {
-        const subtopic = chapter.subtopics.find(s => s.id === subtopicId);
+        const subtopics = Array.isArray(chapter.subtopics) ? chapter.subtopics : [];
+        const subtopic = subtopics.find(s => s.id === subtopicId);
         if (subtopic) {
             return subtopic.title;
         }
