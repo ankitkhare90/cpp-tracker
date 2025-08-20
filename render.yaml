@@ -20,7 +20,3 @@ services:
         fromDatabase:
           name: cpp-primer-db
           property: connectionString
-    # Free tier features:
-    # - 750 hours/month
-    # - Auto-sleep after 15 minutes of inactivity
-    # - Persistent PostgreSQL database

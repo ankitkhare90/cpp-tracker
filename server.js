@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // PostgreSQL connection
 const pool = new Pool({
@@ -40,17 +40,6 @@ async function initializeDatabase() {
       )
     `);
 
-    // Cleanup: remove duplicate chapter rows without subtopics, keeping the lowest id per title
-    await client.query(`
-      DELETE FROM chapters c
-      USING chapters c2
-      WHERE c.chapter_title = c2.chapter_title
-        AND c.id > c2.id
-        AND NOT EXISTS (
-          SELECT 1 FROM subtopics s WHERE s.chapter_id = c.id
-        )
-    `);
-
     // Try to enforce uniqueness on chapter titles
     try {
       await client.query(`CREATE UNIQUE INDEX IF NOT EXISTS idx_unique_chapter_title ON chapters (chapter_title)`);
@@ -67,6 +56,17 @@ async function initializeDatabase() {
         title VARCHAR(300) NOT NULL,
         subtopic_order INTEGER NOT NULL
       )
+    `);
+
+    // Cleanup: remove duplicate chapter rows without subtopics, keeping the lowest id per title
+    await client.query(`
+      DELETE FROM chapters c
+      USING chapters c2
+      WHERE c.chapter_title = c2.chapter_title
+        AND c.id > c2.id
+        AND NOT EXISTS (
+          SELECT 1 FROM subtopics s WHERE s.chapter_id = c.id
+        )
     `);
     
     // Create progress table
@@ -89,7 +89,8 @@ async function initializeDatabase() {
     // Insert chapters and subtopics from progress.json if they don't exist
     const fs = require('fs').promises;
     try {
-      const progressData = JSON.parse(await fs.readFile('progress.json', 'utf8'));
+      const progressFilePath = path.join(__dirname, 'progress.json');
+      const progressData = JSON.parse(await fs.readFile(progressFilePath, 'utf8'));
 
       const chaptersFromFile = Array.isArray(progressData.book) ? progressData.book : [];
       // Prepare user name to id map for optional status seeding
@@ -280,14 +281,30 @@ app.post('/progress/update', async (req, res) => {
   }
 });
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'ok', 
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
 // Serve the main page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, async () => {
-  console.log(`Server running on port ${PORT}`);
-  
-  // Initialize database on startup
+async function startServer() {
+  // Initialize database before accepting requests to avoid race conditions
   await initializeDatabase();
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+startServer().catch((err) => {
+  console.error('Failed to start server:', err);
+  process.exit(1);
 });
