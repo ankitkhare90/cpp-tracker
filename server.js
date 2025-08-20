@@ -71,29 +71,59 @@ async function initializeDatabase() {
     const fs = require('fs').promises;
     try {
       const progressData = JSON.parse(await fs.readFile('progress.json', 'utf8'));
-      
-      for (let i = 0; i < progressData.book.length; i++) {
-        const chapter = progressData.book[i];
-        
-        // Insert chapter
-        const chapterResult = await client.query(`
-          INSERT INTO chapters (chapter_title, chapter_order) 
-          VALUES ($1, $2) 
-          ON CONFLICT DO NOTHING 
-          RETURNING id
-        `, [chapter.chapter, i + 1]);
-        
-        if (chapterResult.rows.length > 0) {
-          const chapterId = chapterResult.rows[0].id;
-          
-          // Insert subtopics
-          for (let j = 0; j < chapter.subtopics.length; j++) {
-            const subtopic = chapter.subtopics[j];
-            await client.query(`
-              INSERT INTO subtopics (id, chapter_id, title, subtopic_order) 
-              VALUES ($1, $2, $3, $4) 
-              ON CONFLICT (id) DO NOTHING
-            `, [subtopic.id, chapterId, subtopic.title, j + 1]);
+
+      const chaptersFromFile = Array.isArray(progressData.book) ? progressData.book : [];
+      // Prepare user name to id map for optional status seeding
+      const usersMapRes = await client.query('SELECT id, name FROM users');
+      const userNameToId = new Map(usersMapRes.rows.map(r => [r.name, r.id]));
+
+      for (let i = 0; i < chaptersFromFile.length; i++) {
+        const chapter = chaptersFromFile[i] || {};
+
+        // Get existing chapter id or insert a new one
+        let chapterId;
+        const existingChapterResult = await client.query(
+          'SELECT id FROM chapters WHERE chapter_title = $1',
+          [chapter.chapter]
+        );
+        if (existingChapterResult.rows.length > 0) {
+          chapterId = existingChapterResult.rows[0].id;
+        } else {
+          const chapterInsertResult = await client.query(
+            `INSERT INTO chapters (chapter_title, chapter_order)
+             VALUES ($1, $2)
+             RETURNING id`,
+            [chapter.chapter, i + 1]
+          );
+          chapterId = chapterInsertResult.rows[0]?.id;
+        }
+
+        if (!chapterId) {
+          continue;
+        }
+
+        // Insert subtopics
+        const subtopicsFromFile = Array.isArray(chapter.subtopics) ? chapter.subtopics : [];
+        for (let j = 0; j < subtopicsFromFile.length; j++) {
+          const subtopic = subtopicsFromFile[j];
+          await client.query(`
+            INSERT INTO subtopics (id, chapter_id, title, subtopic_order)
+            VALUES ($1, $2, $3, $4)
+            ON CONFLICT (id) DO NOTHING
+          `, [subtopic.id, chapterId, subtopic.title, j + 1]);
+
+          // Seed initial completion statuses only when true
+          for (const userName of ['Khare', 'Roy']) {
+            if (subtopic && subtopic[userName] === true) {
+              const userId = userNameToId.get(userName);
+              if (userId) {
+                await client.query(`
+                  INSERT INTO progress (user_id, subtopic_id, completed)
+                  VALUES ($1, $2, true)
+                  ON CONFLICT (user_id, subtopic_id) DO NOTHING
+                `, [userId, subtopic.id]);
+              }
+            }
           }
         }
       }
@@ -116,27 +146,31 @@ async function getProgressData() {
     // Get all data
     const usersResult = await client.query('SELECT * FROM users ORDER BY name');
     const chaptersResult = await client.query(`
-      SELECT c.*, 
-             json_agg(
-               json_build_object(
-                 'id', s.id,
-                 'title', s.title,
-                 'Khare', COALESCE(kh.progress, false),
-                 'Roy', COALESCE(ro.progress, false)
-               ) ORDER BY s.subtopic_order
-             ) as subtopics
+      SELECT c.*,
+             COALESCE(
+               json_agg(
+                 json_build_object(
+                   'id', s.id,
+                   'title', s.title,
+                   'Khare', COALESCE(kh.progress, false),
+                   'Roy', COALESCE(ro.progress, false)
+                 )
+                 ORDER BY s.subtopic_order
+               ) FILTER (WHERE s.id IS NOT NULL),
+               '[]'::json
+             ) AS subtopics
       FROM chapters c
       LEFT JOIN subtopics s ON c.id = s.chapter_id
       LEFT JOIN (
-        SELECT subtopic_id, completed as progress 
-        FROM progress p 
-        JOIN users u ON p.user_id = u.id 
+        SELECT subtopic_id, completed AS progress
+        FROM progress p
+        JOIN users u ON p.user_id = u.id
         WHERE u.name = 'Khare'
       ) kh ON s.id = kh.subtopic_id
       LEFT JOIN (
-        SELECT subtopic_id, completed as progress 
-        FROM progress p 
-        JOIN users u ON p.user_id = u.id 
+        SELECT subtopic_id, completed AS progress
+        FROM progress p
+        JOIN users u ON p.user_id = u.id
         WHERE u.name = 'Roy'
       ) ro ON s.id = ro.subtopic_id
       GROUP BY c.id
